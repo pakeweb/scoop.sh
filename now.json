@@ -1,6 +1,6 @@
 {
-  "name": "scoop",
-  "alias": "scoop.now.sh",
+  "name": "scoopy",
+  "alias": "scoopy.now.sh",
   "type": "static",
   "public": true,
   "static": {
