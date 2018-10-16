@@ -1,1 +1,23 @@
 $accentColor = #4172c8
+
+.site-name
+  color: $accentColor !important
+
+.nav-links
+  .nav-item
+    text-transform: capitalize
+
+// search input reveal only on focus
+.search-box
+  margin-left 1rem
+  margin-right 0
+  input
+    cursor pointer
+    width 0
+    border-color transparent
+    position relative
+
+    &:focus
+      cursor text
+      left 0
+      width 10rem

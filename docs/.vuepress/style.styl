@@ -11,28 +11,9 @@ body
 .repo-link
   display none !important
 
-.nav-links
-  .nav-item
-    text-transform: capitalize
-
 .custom-layout
   .home
     padding-top: 0
-
-// search input reveal only on focus
-.search-box
-  margin-left 1rem
-  margin-right 0
-  input
-    cursor pointer
-    width 0
-    border-color transparent
-    position relative
-
-    &:focus
-      cursor text
-      left 0
-      width 10rem
 
 // put the search input at the edge
 .links
@@ -41,6 +22,9 @@ body
   padding-left: 0
 	:nth-child(1)
 		order 2
+
+.text-accent
+  color: $accentColor
 
 @media (max-width: 419px)
   .mobile-hide
