@@ -1,3 +1,5 @@
+# Apache with PHP
+
 Install PHP and Apache:
 
     scoop install php apache
@@ -15,10 +17,11 @@ Apache will continue running until you press `Ctrl-C` to terminate it.
 If you open http://localhost in your browser, you should see a page saying that &ldquo;It works!&rdquo;.
 
 ## The document root directory
+
 Scoop configures Apache to serve web pages from the htdocs directory inside the Scoop install directory.
 
 You can get to this directory by running:
-    
+
     pushd "$(scoop which httpd | split-path)\..\htdocs"
 
 If you would like to serve documents from somewhere else, you need to change the DocumentRoot inside the conf/httpd.conf file. You can find httpd.conf at

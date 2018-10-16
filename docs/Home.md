@@ -1,27 +1,31 @@
 # Documentation
 
-### Overview
+## Overview
+
 * [So What?](wiki/So-What%3F)
 * [How is Scoop different to Chocolatey?](wiki/Chocolatey-Comparison)
 * [How is Scoop different to Cygwin and MSYS?](wiki/How-is-Scoop-different-to-Cygwin-and-MSYS%3F)
 
-### Getting Started
+## Getting Started
+
 * [Quick Start](wiki/Quick-Start)
 * [Command Help](wiki/Commands)
 * [FAQ](wiki/FAQ)
 * [Uninstalling Scoop](wiki/Uninstalling-Scoop)
 
-### Concepts
+## Concepts
+
 * [Apps](wiki/Apps)
 * [Buckets](wiki/Buckets)
 * [App Manifests](wiki/App-Manifests)
-    * [Creating an App Manifest](wiki/Creating-an-app-manifest)
-    * [Autoupdate](wiki/App-Manifest-Autoupdate)
-    * [Persistent data](wiki/Persistent-data)
+  * [Creating an App Manifest](wiki/Creating-an-app-manifest)
+  * [Autoupdate](wiki/App-Manifest-Autoupdate)
+  * [Persistent data](wiki/Persistent-data)
 * [Dependencies](wiki/Dependencies)
 * [The 'Current' Version Alias](wiki/The-'Current'-Version-Alias)
 
-### Guides
+## Guides
+
 * [Theming Powershell](wiki/Theming-Powershell)
 * [SSH](wiki/SSH-on-Windows)
 * [GitHub with SSH Key](wiki/GitHub-with-SSH-Key)
@@ -29,7 +33,8 @@
 * [Apache with PHP](wiki/Apache-with-PHP)
 * [Java](wiki/Java)
 
-### Misc
+## Misc.
+
 * [System-wide (global) installs](wiki/Global-Installs)
 * [Switching between Ruby and Python Versions](wiki/Switching-Ruby-And-Python-Versions)
 * [Why PowerShell?](wiki/Why-PowerShell%3F)

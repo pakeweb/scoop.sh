@@ -1,8 +1,10 @@
+# SSH on Windows
+
 This guide will help you use SSH on Windows to connect to an SSH server. You'll get a similar experience to how SSH works on Linux on MacOS. No PuTTy or GUIs required, and you can even set it up so you don't have to re-type your private key password every time you connect.
 
 This guide assumes you have [installed Scoop](https://github.com/lukesampson/scoop/wiki/Quick-Start) and have a Linux machine running an SSH server—we'll need something to connect to. It also assumes that you're basically familiar with [what SSH is all about](http://en.wikipedia.org/wiki/Secure_Shell) and just want to know how to use it on Windows.
 
-### Install
+## Install
 
 > If you're using Windows 10 version 1803 (April 2018) or above, a built-in win32-openssh has been installed in your system and been added to the system PATH. You can run `scoop which ssh` to locate the ssh that you're using, and you can chose to skip external openssh installation.
 
@@ -14,7 +16,7 @@ Or, for the latest version of openssh:
 
     scoop install win32-openssh
 
-### Connect with SSH using a password
+## Connect with SSH using a password
 
 Say you have a web server running at `example.org`. You should now be able to connect to it with
 
@@ -24,7 +26,7 @@ Once you enter your password, you should be logged in to the remote server. Pat 
 
 Passwords are fine, but for extra security we can use a password-protected key instead. Let's set that up now.
 
-### Create a key for authentication
+## Create a key for authentication
 If you already have a private key (e.g. ~/.ssh/id_rsa) you can skip this step. If not, create a new private key like this (type text is in **bold**):
 
 <pre>PS> <b>ssh-keygen</b>
@@ -52,7 +54,7 @@ The key's randomart image is:
 
 If you used the default file as above, your private key will be created at `~/.ssh/id_rsa` and your public key will be at `~/.ssh/id_rsa.pub`.
 
-### Connect with an SSH key
+## Connect with an SSH key
 
 Before we can connect to our server (e.g. `example.org`) with our SSH key, we need to authorize the key we'll be using by copying our public key to the remote server:
 
@@ -64,7 +66,7 @@ Now try connecting again:
 
 This time, instead of being asked for your `username` password, you should be asked for the password for your private key.
 
-### Save your SSH key password in Windows Credential Manager
+## Save your SSH key password in Windows Credential Manager
 
 Now, every time you you connect with `ssh username@example.org` you'll be asked for the private key password.
 
@@ -93,7 +95,7 @@ You should be able to see that your password is saved in Windows Credential Mana
 
 Each time you start a Powershell session, Pshazz will start up `ssh-agent` if it's not already running and add your key for you using the saved password.
 
-### Customising SSH settings
+## Customising SSH settings
 
 You might notice that your SSH sessions are timing out. To prevent this I like to add a ServerAliveInterval to my ~/.ssh/config (you might need to create this file if it doesn't exist):
 

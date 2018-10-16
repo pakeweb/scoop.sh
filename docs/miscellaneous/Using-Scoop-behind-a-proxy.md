@@ -1,4 +1,7 @@
-### Do you need this?
+# Using Scoop behind a proxy
+
+**Do you need this?**
+
 If your proxy is already configured in Internet Options and it doesn't require authentication, you shouldn't need to do anything else for Scoop to use it.
 
 These instructions are for people who
@@ -16,7 +19,7 @@ iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 
 If you're behind a proxy you might need to run one or more of these commands first:
 
-```
+```powershell
 # If you want to use a proxy that isn't already configured in Internet Options
 [net.webrequest]::defaultwebproxy = new-object net.webproxy "http://proxy.example.org:8080"
 
@@ -34,7 +37,10 @@ These commands will affect any web requests using `net.webclient` until the end 
 Once Scoop is installed, you can use `scoop config` to configure your proxy. Here's an excerpt from `scoop help config`:
 
 ---
-`scoop config proxy [username:password@]host:port`
+
+```powershell
+scoop config proxy [username:password@]host:port
+```
 
 By default, Scoop will use the proxy settings from Internet Options, but with anonymous authentication.
 
@@ -45,39 +51,40 @@ By default, Scoop will use the proxy settings from Internet Options, but with an
 
 ---
 
-## Config examples
+## Config Examples
 
-##### Use your Windows credentials with the default proxy configured in Internet Options
+* **Use your Windows credentials with the default proxy configured in Internet Options**
 
-```powershell
-scoop config proxy currentuser@default
-```
+  ```powershell
+  scoop config proxy currentuser@default
+  ```
 
-##### Use hard-coded credentials with the default proxy configured in Internet Options
+* **Use hard-coded credentials with the default proxy configured in Internet Options**
 
-```powershell
-scoop config proxy user:password@default
-```
+  ```powershell
+  scoop config proxy user:password@default
+  ```
 
-##### Use a proxy that isn't configured in Internet Options
-```powershell
-# anonymous authentication to proxy.example.org on port 8080:
-scoop config proxy proxy.example.org:8080
+* **Use a proxy that isn't configured in Internet Options**
 
-# or, with authentication:
-scoop config proxy username:password@proxy.example.org:8080
-```
+  ```powershell
+  # anonymous authentication to proxy.example.org on port 8080:
+  scoop config proxy proxy.example.org:8080
 
-##### Bypassing the proxy configured in Internet Options
+  # or, with authentication:
+  scoop config proxy username:password@proxy.example.org:8080
+  ```
 
-```powershell
-scoop config rm proxy
-```
+* **Bypassing the proxy configured in Internet Options**
 
-##### Using a password containing `@` or `:`
+  ```powershell
+  scoop config rm proxy
+  ```
 
-If your proxy password contains `@` or `:` characters, you need to escape them using a `\`, e.g.:
+* **Using a password containing `@` or `:`**
 
-```powershell
-scoop config proxy 'username:p\@ssword@proxy.example.org:8080'
-```
+  If your proxy password contains `@` or `:` characters, you need to escape them using a `\`, e.g.:
+
+  ```powershell
+  scoop config proxy 'username:p\@ssword@proxy.example.org:8080'
+  ```

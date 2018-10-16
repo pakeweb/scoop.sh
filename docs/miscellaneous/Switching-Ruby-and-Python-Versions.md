@@ -1,8 +1,12 @@
-### `scoop reset`
+# Switching Ruby and Python Versions
+
+## `scoop reset`
+
 If you need to run multiple versions of Ruby or Python on the same computer, you can use `scoop reset` to switch between versions.
 If you're familiar with rbenv or RVM this is roughly similar, although with `scoop reset` you always need to switch version manually.
 
-### Example
+## Example
+
 ```powershell
 scoop bucket add versions # add the 'versions' bucket if you haven't already
 
@@ -22,6 +26,7 @@ ruby --version # -> ruby 1.9.3p551 (2014-11-13) [i386-mingw32]
 You can switch between Ruby versions as many times as you like—both versions remain installed but one takes priority.
 
 ## Python
+
 The same thing works for Python
 
 ```powershell

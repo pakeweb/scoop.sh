@@ -1,3 +1,5 @@
+# Custom PHP Configuration
+
 If you want to customize the settings of your PHP Installation you should never edit the `php.ini` file inside the PHP directory. This file will not survive updates.
 
 Always create you own custom configuration files inside the configuration scan dir.
@@ -26,7 +28,7 @@ html_errors = Off
 
 Enabling PHP modules, those are the most commonly needed modules. Take a look inside the `php.ini` what is available (`extensions.ini`)
 
-``` ini
+```ini
 extension=php_curl.dll
 extension=php_fileinfo.dll
 extension=php_gd2.dll
@@ -43,4 +45,6 @@ extension=php_sqlite3.dll
 extension=php_tidy.dll
 ```
 
-_Tip: You can use git to store your configurations_
+::: tip
+You can use git to store your configurations
+:::

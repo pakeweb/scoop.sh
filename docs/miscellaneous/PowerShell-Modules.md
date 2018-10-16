@@ -1,3 +1,5 @@
+# PowerShell-Modules
+
 PowerShell modules are installed like other apps, but they are also linked under `~\scoop\modules`.
 
 The `~\scoop\modules` directory will be added to your `$env:PSModulePath` environment variable, and PowerShell should automatically detect the modules you install here using Scoop.
@@ -12,11 +14,11 @@ The key part of the [Scoop manifest](App-Manifests) for a PowerShell module is t
 
 ```json
 {
-...
+//...
     "psmodule": {
         "name": "NameOfTheModule"
     }
-...
+//...
 }
 ```
 

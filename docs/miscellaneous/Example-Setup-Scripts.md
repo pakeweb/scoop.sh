@@ -1,12 +1,16 @@
-Here are some example 'get-all-my-stuff' scripts. 
+# Example Setup Scripts
+
+Here are some example 'get-all-my-stuff' scripts.
 
 It's assumed that you have Powershell 3 and you've already installed Scoop, e.g.
+
 ```powershell
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 set-executionpolicy unrestricted -s cu
 ```
 
-### Example dev environment setup
+## Example dev environment setup
+
 ```powershell
 # utils
 scoop install 7zip curl sudo git openssh coreutils grep sed less
@@ -36,7 +40,7 @@ set backupdir=$TEMP
 
 ```
 
-### Example production environment setup
+## Example production environment setup
 
 ```powershell
 scoop install sudo 7zip
@@ -45,7 +49,5 @@ scoop install sudo 7zip
 sudo scoop install git ruby postgres --global
 
 # just for me
-scoop install grep coreutils 
+scoop install grep coreutils
 ```
-
-

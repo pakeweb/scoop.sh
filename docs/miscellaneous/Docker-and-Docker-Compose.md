@@ -1,3 +1,5 @@
+# Docker and Docker Compose
+
 Requirements: [Virtualbox](https://www.virtualbox.org/) or [VmWare](https://www.vmware.com/)
 
 ## First time, set-up Docker and create a base machine
@@ -29,5 +31,5 @@ When finished:
     docker-machine stop
 
 Getting our Docker machine:
-    
+
     docker-machine ls
