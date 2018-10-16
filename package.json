@@ -1,11 +1,8 @@
 {
   "name": "scoop.wiki",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "description": "Documentation for Scoop, the Command-Line Installer for Windows",
+  "main": "n/a",
   "scripts": {
     "start": "vuepress dev docs",
     "build": "vuepress build docs",
@@ -13,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukesampson/scoop.wiki.git"
+    "url": "git+https://github.com/pakeweb/scoop.sh.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Eko Eryanto <ekoeryanto@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lukesampson/scoop.wiki/issues"
+    "url": "https://github.com/lukesampson/scoop/issues"
   },
-  "homepage": "https://github.com/lukesampson/scoop.wiki#readme",
+  "homepage": "https://scoop.sh",
   "dependencies": {
     "vuepress": "^0.14.4"
   }
