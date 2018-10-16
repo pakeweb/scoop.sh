@@ -4,7 +4,6 @@
   "type": "static",
   "public": true,
   "static": {
-    "public": "dist",
-    "renderSingle": true
+    "public": "dist"
   }
 }
