@@ -4,10 +4,14 @@ module.exports = {
   title: 'Scoop',
   description: 'A command-line installer for Windows',
   head,
+  serviceWorker: true,
   themeConfig: {
     lastUpdated: true,
     serviceWorker: {
-      updatePopup: true
+      updatePopup: {
+        message: "Documentation has been updated.",
+        buttonText: "Refresh"
+      }
     },
     editLinks: true,
     repo: 'pakeweb/scoop.sh',
