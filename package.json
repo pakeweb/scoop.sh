@@ -4,7 +4,8 @@
   "description": "Documentation for Scoop, the Command-Line Installer for Windows",
   "main": "n/a",
   "scripts": {
-    "start": "vuepress dev docs",
+    "start": "serve",
+    "dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +21,8 @@
   "homepage": "https://scoop.sh",
   "dependencies": {
     "vuepress": "^0.14.4"
+  },
+  "devDependencies": {
+    "serve": "^10.0.2"
   }
 }

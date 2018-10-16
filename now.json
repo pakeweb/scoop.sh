@@ -1,9 +1,9 @@
 {
-  "name": "scoopy",
-  "alias": "scoopy.now.sh",
-  "type": "static",
+  "name": "scoop",
+  "alias": "scoop.now.sh",
   "public": true,
   "static": {
-    "public": "dist"
+    "public": "dist",
+    "renderSingle": true
   }
 }
