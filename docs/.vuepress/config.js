@@ -22,6 +22,7 @@ module.exports = {
       { text: 'Concepts', link: '/concepts/' },
       { text: 'Miscellaneous', link: '/miscellaneous/' },
       { text: 'FAQ', link: '/faq/' },
+      { text: 'Search', link: '/search/' },
       { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' },
     ]
   },
