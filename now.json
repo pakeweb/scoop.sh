@@ -1,0 +1,10 @@
+{
+  "name": "scoop",
+  "alias": "scoop.now.sh",
+  "type": "static",
+  "public": true,
+  "static": {
+    "public": "dist",
+    "renderSingle": true
+  }
+}
