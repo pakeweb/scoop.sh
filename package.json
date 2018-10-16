@@ -1,0 +1,27 @@
+{
+  "name": "scoop.wiki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukesampson/scoop.wiki.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukesampson/scoop.wiki/issues"
+  },
+  "homepage": "https://github.com/lukesampson/scoop.wiki#readme",
+  "dependencies": {
+    "vuepress": "^0.14.4"
+  }
+}
