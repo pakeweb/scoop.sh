@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /scoop.svg
-actionText: Get Started →
+actionText: '>_ Get Started'
 actionLink: /guide/
 features:
 - title: Easy Program Installation

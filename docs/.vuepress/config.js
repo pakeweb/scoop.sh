@@ -5,7 +5,10 @@ module.exports = {
   description: 'A command-line installer for Windows',
   head,
   themeConfig: {
-    lastUpdated: 'Last updated',
+    lastUpdated: true,
+    serviceWorker: {
+      updatePopup: true
+    },
     editLinks: true,
     repo: 'pakeweb/scoop.sh',
     docsDir: 'docs',
