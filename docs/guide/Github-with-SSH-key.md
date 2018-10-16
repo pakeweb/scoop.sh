@@ -20,7 +20,7 @@ scoop install git openssh
 
 If you don't already have an SSH key, you can create one like this:
 
-```sh
+```bash
 ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/c/Users/Username/.ssh/id_rsa): [press enter]
@@ -44,12 +44,12 @@ You should see a popup asking for your SSH key password: enter it and check the 
 
 To make sure everything's working, run:
 
-```sh
+```bash
 ssh -T git@github.com
 ```
 
 After a warning or two, you should see a message like this:
 
-```sh
+```bash
 Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
 ```

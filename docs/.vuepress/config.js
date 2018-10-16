@@ -20,5 +20,6 @@ module.exports = {
       { text: 'FAQ', link: '/faq/' },
       { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' },
     ]
-  }
+  },
+  dest: 'dist'
 }
