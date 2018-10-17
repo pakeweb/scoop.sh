@@ -38,7 +38,10 @@
       <tbody>
         <template v-if="buckets.length">
             <tr v-for="bucket in buckets" :key="bucket.id">
-              <td><img class="avatar" :src="bucket.owner.avatar_url + '&amp;s=20'"> <a :href="bucket.url">{{ bucket.full_name }}</a></td>
+              <td>
+                <img class="avatar" :src="bucket.owner.avatar_url + '&amp;s=20'">
+                <a class="external" target="_blank" rel="noopener noreferrer" :href="bucket.html_url">{{ bucket.full_name }}</a>
+              </td>
               <td>{{ bucket.description }}</td>
               <td style="text-align: right;">{{ bucket.stargazers_count }}</td>
             </tr>
