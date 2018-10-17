@@ -19,10 +19,10 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
+      { text: 'Search', link: '/search/' },
       { text: 'Concepts', link: '/concepts/' },
       { text: 'Miscellaneous', link: '/miscellaneous/' },
       { text: 'FAQ', link: '/faq/' },
-      { text: 'Search', link: '/search/' },
       { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' },
     ]
   },

@@ -2,7 +2,7 @@
 
   <div>
     <div class="search-box app-search-box">
-      <input type="text" v-model="query" @change="search" placeholder="App name" />
+      <input type="text" v-model="query" @input="search" placeholder="App name" />
     </div>
     <table>
       <thead>
@@ -16,8 +16,11 @@
         <template v-if="apps.length">
           <tr v-for="app in apps" :key="app.sha">
             <td>{{ app.name.replace('.json', '') }}</td>
-            <td><img class="avatar" :src="app.repository.owner.avatar_url + '&amp;s=20'"> <a :href="app.repository.url">{{ app.repository.full_name }}</a></a></td>
-            <td><a :href="app.html_url">{{ app.path }}</a></td>
+            <td>
+              <img class="avatar" :src="app.repository.owner.avatar_url + '&amp;s=20'">
+              <a target="_blank" rel="noopener noreferrer" :href="app.repository.html_url">{{ app.repository.full_name }}</a>
+            </td>
+            <td><a target="_blank" rel="noopener noreferrer" :href="app.html_url">{{ app.path }}</a></td>
           </tr>
         </template>
         <tr v-else>
@@ -40,7 +43,7 @@
             <tr v-for="bucket in buckets" :key="bucket.id">
               <td>
                 <img class="avatar" :src="bucket.owner.avatar_url + '&amp;s=20'">
-                <a class="external" target="_blank" rel="noopener noreferrer" :href="bucket.html_url">{{ bucket.full_name }}</a>
+                <a target="_blank" rel="noopener noreferrer" :href="bucket.html_url">{{ bucket.full_name }}</a>
               </td>
               <td>{{ bucket.description }}</td>
               <td style="text-align: right;">{{ bucket.stargazers_count }}</td>
@@ -55,6 +58,9 @@
 </template>
 
 <script>
+import debounce from "tiny-debounce";
+import nprogress from "nprogress";
+
 export default {
   props: {
     threshold: {
@@ -62,60 +68,86 @@ export default {
       default: 300
     }
   },
-  data () {
+
+  data() {
     return {
       scrollTop: null,
       buckets: [],
       apps: [],
-      query: '',
-      apps_found: false,
-    }
+      query: "",
+      apps_found: false
+    };
   },
-  mounted () {
-    this.axios.get('https://api.github.com/search/repositories?q=topic:scoop-bucket').then((response) => {
-      this.buckets = response.data.items
-    })
+  mounted() {
+    nprogress.configure({ showSpinner: false });
+    nprogress.start();
+    this.axios
+      .get("https://api.github.com/search/repositories?q=topic:scoop-bucket")
+      .then(response => {
+        this.buckets = response.data.items;
+        nprogress.done();
+      });
   },
   methods: {
-    search (value) {
-      let buckets_string = ''
-      this.buckets.forEach((bucket) => {
-        buckets_string += `+repo:${bucket.full_name}`
-      })
-      this.axios.get(`https://api.github.com/search/code?q=${this.query}+in:file+extension:json${buckets_string}`).then((response) => {
-        this.apps = response.data.items
-        this.apps_found = response.data.total_count > 0
-      })
-    },
-    scrollToTop () {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-      this.scrollTop = 0
+    search: debounce(function() {
+      nprogress.start();
+
+      let buckets = "";
+      this.buckets.forEach(bucket => {
+        buckets += `+repo:${bucket.full_name}`;
+      });
+
+      buckets = encodeURI(buckets);
+      const query = encodeURI(this.query);
+      this.axios
+        .get(
+          `https://api.github.com/search/code?q=${query}+in:file+extension:json${buckets}`
+        )
+        .catch(err => {
+          nprogress.done();
+        })
+        .then(({ data: { items, total_count } }) => {
+          this.apps = items;
+          console.log({ total_count });
+          this.apps_found = total_count > 0;
+          nprogress.done();
+        });
+    }, 1000),
+
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      this.scrollTop = 0;
     }
   },
   computed: {
-    show () {
-      return this.scrollTop > this.threshold
+    show() {
+      return this.scrollTop > this.threshold;
     }
   }
-}
+};
 </script>
 
 <style lang="stylus">
-$borderColor = #eaecef
+$borderColor = #eaecef;
 
-.avatar
-  height 20px
-  width 20px
-  border-radius 2px
+.avatar {
+  height: 20px;
+  width: 20px;
+  border-radius: 2px;
+}
 
-.app-search-box
-  margin-left 1rem
-  margin-right 1rem
-  input
-    cursor text
-    width 10rem
-    border 1px solid darken($borderColor, 10%)
+.app-search-box {
+  margin-left: 1rem;
+  margin-right: 1rem;
 
-    &:focus
-      cursor text
+  input {
+    cursor: text;
+    width: 10rem;
+    border: 1px solid darken($borderColor, 10%);
+
+    &:focus {
+      cursor: text;
+    }
+  }
+}
 </style>

@@ -6437,6 +6437,11 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
+tiny-debounce@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/tiny-debounce/-/tiny-debounce-0.1.1.tgz#e7759447ca1d48830d3b302ce94666a0ca537b1d"
+  integrity sha1-53WUR8odSIMNOzAs6UZmoMpTex0=
+
 tiny-emitter@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.2.tgz#82d27468aca5ade8e5fd1e6d22b57dd43ebdfb7c"
