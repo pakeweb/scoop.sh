@@ -90,6 +90,10 @@ export default {
   },
   methods: {
     search: debounce(function() {
+
+      // One char always return zero
+      if (this.query.length < 2) return
+
       nprogress.start();
 
       let buckets = "";
@@ -99,10 +103,9 @@ export default {
 
       buckets = encodeURI(buckets);
       const query = encodeURI(this.query);
+      const url = `https://api.github.com/search/code?q=${query}+in:file+extension:json${buckets}`
       this.axios
-        .get(
-          `https://api.github.com/search/code?q=${query}+in:file+extension:json${buckets}`
-        )
+        .get(url)
         .catch(err => {
           nprogress.done();
         })
