@@ -3,7 +3,6 @@
   "alias": "scoop.now.sh",
   "public": true,
   "static": {
-    "public": "dist",
-    "renderSingle": true
+    "public": "dist"
   }
 }
