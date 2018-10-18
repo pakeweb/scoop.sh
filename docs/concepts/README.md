@@ -564,7 +564,7 @@ Of course there are some cases where an old version of a program is still widely
 
 Sometimes an app needs another app to install or run properly. For example:
 
-```text
+```latex
 rust
  |
  |—— innounp required (to install)

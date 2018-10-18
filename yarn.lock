@@ -1296,7 +1296,7 @@ babel-extract-comments@^1.0.0:
   dependencies:
     babylon "^6.18.0"
 
-babel-helper-vue-jsx-merge-props@^2.0.3:
+babel-helper-vue-jsx-merge-props@^2.0.1, babel-helper-vue-jsx-merge-props@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-2.0.3.tgz#22aebd3b33902328e513293a8e4992b384f9f1b6"
   integrity sha512-gsLiKK7Qrb7zYJNgiXKpXblxbV5ffSwR0f5whkPAaBAR4fhi6bwRZxX9wBlIc5M/v8CCkXUbXZL4N/nSE97cqg==
@@ -6437,6 +6437,11 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
+tiny-debounce@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/tiny-debounce/-/tiny-debounce-0.1.1.tgz#e7759447ca1d48830d3b302ce94666a0ca537b1d"
+  integrity sha1-53WUR8odSIMNOzAs6UZmoMpTex0=
+
 tiny-emitter@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.2.tgz#82d27468aca5ade8e5fd1e6d22b57dd43ebdfb7c"
@@ -6847,6 +6852,13 @@ vue-server-renderer@^2.5.16:
     resolve "^1.2.0"
     serialize-javascript "^1.3.0"
     source-map "0.5.6"
+
+vue-slim-modal@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vue-slim-modal/-/vue-slim-modal-1.0.4.tgz#7d745655d465333a93c9bb395ba241ae21f925df"
+  integrity sha512-p5i9xlirDmrbXphucVigJSD6OOQO74VqPPPOEbH/xmpfuZGErYUw+jVcT4x1PMMvjz4bTScp2Ob7ZP9SJ/a6Sw==
+  dependencies:
+    babel-helper-vue-jsx-merge-props "^2.0.1"
 
 vue-style-loader@^4.1.0:
   version "4.1.2"

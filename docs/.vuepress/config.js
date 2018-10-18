@@ -4,7 +4,6 @@ module.exports = {
   title: 'Scoop',
   description: 'A command-line installer for Windows',
   head,
-  serviceWorker: true,
   themeConfig: {
     lastUpdated: true,
     serviceWorker: {
@@ -19,10 +18,9 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
-      { text: 'Concepts', link: '/concepts/' },
-      { text: 'Miscellaneous', link: '/miscellaneous/' },
+      { text: 'Apps', link: '/apps/' },
+      { text: 'Buckets', link: '/buckets/' },
       { text: 'FAQ', link: '/faq/' },
-      { text: 'Search', link: '/search/' },
       { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' },
     ]
   },

@@ -21,7 +21,9 @@
   "homepage": "https://scoop.sh",
   "dependencies": {
     "axios": "^0.18.0",
+    "tiny-debounce": "^0.1.1",
     "vue-axios": "^2.1.4",
+    "vue-slim-modal": "^1.0.4",
     "vuepress": "^0.14.4"
   },
   "devDependencies": {
