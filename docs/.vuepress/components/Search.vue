@@ -19,22 +19,39 @@
       </div>
     </div>
     <div class="results" style="margin-top: 1.5rem">
-      <div v-for="app in apps" :key="app.sha" class="result-list">
+      <modal :is-open="showApp" :click-outside="toggleApp" class="app-modal" overlayClass="app-modal-overlay">
+        <div v-if="showApp">
+          <h3>{{selectedApp.name.replace('.json', '')}} ({{selectedApp.version}})</h3>
+          <p>{{selectedApp.description}}</p>
+          <p v-if="!isInternalBucket(selectedApp.repository)">
+            Add bucket command:
+            <cite>scoop bucket add {{selectedApp.repository.full_name}}</cite>
+          </p>
+          <p>
+            Install command:
+            <cite>scoop install {{selectedApp.name.replace('.json', '')}}</cite>
+          </p>
+        </div>
+      </modal>
+      <div v-for="app in apps" :key="app.sha" class="result-list" @click="openApp(app)">
         <div class="result-headline">{{app.name.replace('.json', '')}}</div>
         <div class="result-desc">
           <div>
-            Bucket:
-            <Link v-if="app.repository.full_name !== 'lukesampson/scoop'" :to="app.repository.html_url">{{ app.repository.full_name }}</Link>
-            <span v-else> Official Bucket</span>
+            Score: {{app.score}}
+          </div>
+          Bucket:
+          <div>
+            - Name:
+            <Link v-if="!isInternalBucket(app)" :to="app.repository.html_url">{{ app.repository.full_name }}</Link>
+            <span v-else> Internal</span>
           </div>
           <div>
-            Description:
+            - Description:
             {{app.repository.description}}
           </div>
           <div>
-            Author:
+            - Author:
             <Link :to="app.repository.owner.html_url">
-              <!-- <img class="avatar" :src="app.repository.owner.avatar_url + '&amp;s=20'"> -->
               {{app.repository.owner.login}}
             </Link>
           </div>
@@ -47,12 +64,18 @@
 <script>
 import debounce from "tiny-debounce";
 import nprogress from "nprogress";
+import Modal from "vue-slim-modal";
 
 export default {
+  components: {
+    Modal
+  },
   data() {
     return {
       buckets: [],
       apps: [],
+      showApp: false,
+      selectedApp: {},
       query: "",
       found: false
     };
@@ -73,6 +96,8 @@ export default {
 
   mounted() {
     nprogress.configure({ showSpinner: false });
+
+    window.SCOOP_APPS = window.SCOOP_APPS || new Map();
 
     // fetch for official repo
     if (!window.SCOOP_OFFICIAL_APPS) {
@@ -101,7 +126,37 @@ export default {
       this.buckets = window.SCOOP_BUCKETS;
     }
   },
+
   methods: {
+    toggleApp() {
+      this.showApp = !this.showApp
+    },
+
+    isInternalBucket(o) {
+      const name = typeof o === 'string' ? o : o.repository ? o.repository.full_name : o.full_name
+      return name === 'lukesampson/scoop'
+    },
+
+    async openApp(app) {
+      if (!window.SCOOP_APPS.has(app.sha)) {
+        nprogress.start();
+        const { data } = await this.axios.get(
+          app.html_url
+            .replace("github.com", "raw.githubusercontent.com")
+            .replace("/blob/", "/")
+        );
+        window.SCOOP_APPS.set(app.sha, data);
+
+        nprogress.done();
+      }
+
+      this.selectedApp = {
+        ...app,
+        ...window.SCOOP_APPS.get(app.sha)
+      };
+      this.toggleApp()
+      console.log(this.selectedApp)
+    },
     search: debounce(function() {
       this.found = false;
       // One char always return zero
@@ -129,6 +184,7 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '~vue-slim-modal/themes/default.css'
 $borderColor = #eaecef;
 
 .hero {
@@ -188,4 +244,7 @@ $borderColor = #eaecef;
     }
   }
 }
+.app-modal
+  min-width 70%
+  padding 2rem
 </style>
