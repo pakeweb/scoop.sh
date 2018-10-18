@@ -1,7 +1,7 @@
 <template>
   <router-link
-    :to="link"
     v-if="!isExternal(link)"
+    :to="link"
     :exact="exact"
   >
     <slot />
@@ -13,7 +13,7 @@
     :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'"
   >
     <slot />
-    <OutboundLink v-if="!inbound"/>
+    <OutboundLink v-if="!inbound" />
   </a>
 </template>
 
@@ -23,7 +23,8 @@ import { isExternal, isMailto, isTel, ensureExt } from "@default-theme/util";
 export default {
   props: {
     to: {
-      required: true
+      required: true,
+      type: String
     },
     inbound: {
       type: Boolean,

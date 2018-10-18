@@ -1,55 +1,75 @@
 <template>
   <div class="apps">
     <div class="hero">
-      <h1 v-if="query" class="typing">>_ scoop search {{query}}</h1>
+      <h1
+        v-if="query"
+        class="typing"
+      >>_ scoop search {{ query }}</h1>
       <h1 v-else>Search for Apps</h1>
       <div class="action">
         <div class="search-box app-search-box">
-          <input type="text" v-model="query" @input="search" placeholder="App name" autofocus>
+          <input
+            v-model="query"
+            type="text"
+            placeholder="App name"
+            autofocus
+            @input="search"
+          >
         </div>
-        <p class="description" v-if="query && found !== false">
-          <template v-if="found">Found {{found}} apps for query `{{query}}`</template>
-          <template v-else>No app found with query `{{query}}`</template>
+        <p
+          v-if="query && found !== false"
+          class="description"
+        >
+          <template v-if="found">Found {{ found }} apps for query `{{ query }}`</template>
+          <template v-else>No app found with query `{{ query }}`</template>
         </p>
       </div>
     </div>
-    <div class="results" style="margin-top: 1.5rem">
+    <div
+      class="results"
+      style="margin-top: 1.5rem"
+    >
       <modal
         :is-open="showApp"
         :click-outside="toggleApp"
         class="app-modal"
-        overlayClass="app-modal-overlay"
+        overlay-class="app-modal-overlay"
       >
         <div v-if="showApp">
-          <h3>{{selectedApp.name.replace('.json', '')}} ({{selectedApp.version}})</h3>
-          <p>{{selectedApp.description}}</p>
+          <h3>{{ selectedApp.name.replace('.json', '') }} ({{ selectedApp.version }})</h3>
+          <p>{{ selectedApp.description }}</p>
           <p v-if="!isInternalBucket(selectedApp.repository)">
             Add bucket command:
-            <cite>scoop bucket add {{selectedApp.repository.full_name}}</cite>
+            <cite>scoop bucket add {{ selectedApp.repository.full_name }}</cite>
           </p>
           <p>
             Install command:
-            <cite>scoop install {{selectedApp.name.replace('.json', '')}}</cite>
+            <cite>scoop install {{ selectedApp.name.replace('.json', '') }}</cite>
           </p>
         </div>
       </modal>
-      <div v-for="app in apps" :key="app.sha" class="result-list" @click="openApp(app)">
-        <div class="result-headline">{{app.name.replace('.json', '')}}</div>
+      <div
+        v-for="app in apps"
+        :key="app.sha"
+        class="result-list"
+        @click="openApp(app)"
+      >
+        <div class="result-headline">{{ app.name.replace('.json', '') }}</div>
         <div class="result-desc">
-          <div>Score: {{app.score}}</div>Bucket:
+          <div>Score: {{ app.score }}</div>Bucket:
           <div>- Name:
-            <Link
+            <VLink
               v-if="!isInternalBucket(app)"
               :to="app.repository.html_url"
-            >{{ app.repository.full_name }}</Link>
+            >{{ app.repository.full_name }}</VLink>
             <span v-else>Internal</span>
           </div>
           <div>
             - Description:
-            {{app.repository.description}}
+            {{ app.repository.description }}
           </div>
           <div>- Author:
-            <Link :to="app.repository.owner.html_url">{{app.repository.owner.login}}</Link>
+            <VLink :to="app.repository.owner.html_url">{{ app.repository.owner.login }}</VLink>
           </div>
         </div>
       </div>
