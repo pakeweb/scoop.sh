@@ -18,9 +18,8 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
-      { text: 'Search', link: '/search/' },
-      { text: 'Concepts', link: '/concepts/' },
-      { text: 'Miscellaneous', link: '/miscellaneous/' },
+      { text: 'Apps', link: '/apps/' },
+      { text: 'Buckets', link: '/buckets/' },
       { text: 'FAQ', link: '/faq/' },
       { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' },
     ]
