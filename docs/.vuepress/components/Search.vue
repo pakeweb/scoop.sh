@@ -51,12 +51,24 @@ import nprogress from "nprogress";
 export default {
   data() {
     return {
-      scrollTop: null,
       buckets: [],
       apps: [],
       query: "",
       found: false
     };
+  },
+
+  computed: {
+    bucketsList() {
+      return encodeURI(
+        "+repo:" +
+          this.buckets
+            .map(el => {
+              return el.full_name;
+            })
+            .join("+repo:")
+      );
+    }
   },
 
   mounted() {
@@ -97,15 +109,10 @@ export default {
 
       nprogress.start();
 
-      let buckets = "";
-      this.buckets.forEach(bucket => {
-        buckets += `+repo:${bucket.full_name}`;
-      });
-
-      buckets = encodeURI(buckets);
       const query = encodeURI(this.query);
+      const buckets = this.bucketsList;
       const url = `https://api.github.com/search/code?q=${query}+in:file+extension:json${buckets}`;
-      console.log(url);
+
       this.axios
         .get(url)
         .catch(err => {
@@ -116,13 +123,8 @@ export default {
           this.found = total_count;
           nprogress.done();
         });
-    }, 1000),
-
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      this.scrollTop = 0;
-    }
-  },
+    }, 1000)
+  }
 };
 </script>
 
