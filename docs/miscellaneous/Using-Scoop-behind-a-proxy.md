@@ -6,8 +6,8 @@ If your proxy is already configured in Internet Options and it doesn't require a
 
 These instructions are for people who
 
-1. need to authenticate with their proxy, either using their Windows credentials or another username/password
-2. want to use a proxy server for Scoop that isn't configured in Internet Options.
+1.  need to authenticate with their proxy, either using their Windows credentials or another username/password
+2.  want to use a proxy server for Scoop that isn't configured in Internet Options.
 
 ## Installation
 
@@ -44,28 +44,28 @@ scoop config proxy [username:password@]host:port
 
 By default, Scoop will use the proxy settings from Internet Options, but with anonymous authentication.
 
-* To use the credentials for the current logged-in user, use `currentuser` in place of `username:password`
-* To use the system proxy settings configured in Internet Options, use `default` in place of `host:port`
-* An empty or unset value for proxy is equivalent to `default` (with no username or password)
-* To bypass the system proxy and connect directly, use `none` (with no username or password)
+- To use the credentials for the current logged-in user, use `currentuser` in place of `username:password`
+- To use the system proxy settings configured in Internet Options, use `default` in place of `host:port`
+- An empty or unset value for proxy is equivalent to `default` (with no username or password)
+- To bypass the system proxy and connect directly, use `none` (with no username or password)
 
 ---
 
 ## Config Examples
 
-* **Use your Windows credentials with the default proxy configured in Internet Options**
+- **Use your Windows credentials with the default proxy configured in Internet Options**
 
   ```powershell
   scoop config proxy currentuser@default
   ```
 
-* **Use hard-coded credentials with the default proxy configured in Internet Options**
+- **Use hard-coded credentials with the default proxy configured in Internet Options**
 
   ```powershell
   scoop config proxy user:password@default
   ```
 
-* **Use a proxy that isn't configured in Internet Options**
+- **Use a proxy that isn't configured in Internet Options**
 
   ```powershell
   # anonymous authentication to proxy.example.org on port 8080:
@@ -75,13 +75,13 @@ By default, Scoop will use the proxy settings from Internet Options, but with an
   scoop config proxy username:password@proxy.example.org:8080
   ```
 
-* **Bypassing the proxy configured in Internet Options**
+- **Bypassing the proxy configured in Internet Options**
 
   ```powershell
   scoop config rm proxy
   ```
 
-* **Using a password containing `@` or `:`**
+- **Using a password containing `@` or `:`**
 
   If your proxy password contains `@` or `:` characters, you need to escape them using a `\`, e.g.:
 

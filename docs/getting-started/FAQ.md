@@ -1,4 +1,4 @@
-*Do you have a question that's not answered here? Please create an issue.*
+_Do you have a question that's not answered here? Please create an issue._
 
 ### How do I update my apps?
 
@@ -14,7 +14,7 @@ Then update the app, e.g. Git:
 scoop update git
 ```
 
-If you want to update all your apps at once, you can use the wildcard '*':
+If you want to update all your apps at once, you can use the wildcard '\*':
 
 ```
 scoop update *
@@ -32,4 +32,4 @@ scoop uninstall git
 
 It's likely that your antivirus or anti-malware program is doing a realtime scan as files are being extracted. Please see [Antivirus and Anti-Malware Problems](https://github.com/lukesampson/scoop/wiki/Antivirus-and-Anti-Malware-Problems) for more information and possible workarounds.
 
-*[todo: insert more FAQS here]*
+_[todo: insert more FAQS here]_

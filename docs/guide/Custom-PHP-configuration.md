@@ -9,7 +9,7 @@ The directory is located at `~/scoop/persist/php/cli/conf.d`. You can create as 
 
 Some basic settings like the timezone and limits (`custom.ini`)
 
-``` ini
+```ini
 date.timezone = Europe/Berlin
 max_execution_time = 60
 memory_limit = 256M
@@ -19,7 +19,7 @@ upload_max_filesize = 128M
 
 Enabling debugging (`debug.ini`)
 
-``` ini
+```ini
 display_errors = On
 display_startup_errors = On
 error_reporting = E_ALL

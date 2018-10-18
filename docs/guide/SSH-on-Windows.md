@@ -27,6 +27,7 @@ Once you enter your password, you should be logged in to the remote server. Pat 
 Passwords are fine, but for extra security we can use a password-protected key instead. Let's set that up now.
 
 ## Create a key for authentication
+
 If you already have a private key (e.g. ~/.ssh/id_rsa) you can skip this step. If not, create a new private key like this (type text is in **bold**):
 
 <pre>PS> <b>ssh-keygen</b>

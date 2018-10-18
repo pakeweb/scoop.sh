@@ -16,7 +16,7 @@ To install an app:
 
     sudo scoop install git --global
 
-*Note: if you want the app to be available to the local system account, you will need to restart the system after you install your first app globally. This is because changes made to environment variables don't take affect for the local system account until you restart Windows (see [here](http://support.microsoft.com/kb/821761)).*
+_Note: if you want the app to be available to the local system account, you will need to restart the system after you install your first app globally. This is because changes made to environment variables don't take affect for the local system account until you restart Windows (see [here](http://support.microsoft.com/kb/821761))._
 
 You can also use the short form for `--global`, `-g`.
 

@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import { isExternal, isMailto, isTel, ensureExt } from '@default-theme/util'
+import { isExternal, isMailto, isTel, ensureExt } from "@default-theme/util";
 
 export default {
   props: {
     to: {
-      required: true,
+      required: true
     },
     inbound: {
       type: Boolean,
@@ -32,15 +32,17 @@ export default {
   },
 
   computed: {
-    link () {
-      return ensureExt(this.to)
+    link() {
+      return ensureExt(this.to);
     },
 
-    exact () {
+    exact() {
       if (this.$site.locales) {
-        return Object.keys(this.$site.locales).some(rootLink => rootLink === this.link)
+        return Object.keys(this.$site.locales).some(
+          rootLink => rootLink === this.link
+        );
       }
-      return this.link === '/'
+      return this.link === "/";
     }
   },
 
@@ -49,5 +51,5 @@ export default {
     isMailto,
     isTel
   }
-}
+};
 </script>

@@ -14,8 +14,8 @@ Oracle’s Java is also available, in two versions: [JDK](https://github.com/se3
 
 There are two solutions available today for switching java:
 
-1. `scoop reset <java>[@<version>]`
-2. Using [find-java](https://github.com/lukesampson/scoop-extras/blob/master/find-java.json) from [extras](https://github.com/lukesampson/scoop-extras)
+1.  `scoop reset <java>[@<version>]`
+2.  Using [find-java](https://github.com/lukesampson/scoop-extras/blob/master/find-java.json) from [extras](https://github.com/lukesampson/scoop-extras)
 
 `scoop reset` works very well for the current session, and will also update the user's path.
 

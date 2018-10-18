@@ -5,6 +5,7 @@ sidebar: auto
 # Guide
 
 ## Requirements
+
 - Windows 7 SP1+ / Windows Server 2008+
 - PowerShell 3 (or later) and .NET Framework 4.5+
 - PowerShell must be enabled for your user account and `executionpolicy` set to `remotesigned`
@@ -46,6 +47,7 @@ Assuming the target directory is `D:\Applications\Scoop`, in a PowerShell comman
 $env:SCOOP='D:\Applications\Scoop' # with this we don't need to close and reopen the console
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 ```
+
 If you didn't see any error messages, Scoop is now ready to run.
 
 If you need to set global installation to custom directory, you need to set `SCOOP_GLOBAL` environment to your preferred location, here is PowerShell command to set the environment:
@@ -60,6 +62,7 @@ Global installations need an Administrator privilege.
 :::
 
 ## Using Scoop
+
 Although Scoop is written in PowerShell, it's interface is closer to Git and Mercurial than it is to most PowerShell programs.
 
 To get an overview of Scoop's interface, run:
@@ -73,6 +76,7 @@ You'll see a list of commands with a brief summary of what each command does. Fo
 Now that you have a rough idea of how Scoop commands work, let's try installing something.
 
 ### Installing Apps
+
 ```powershell
 scoop install curl
 ```
@@ -133,8 +137,6 @@ If you've tried Scoop and it's not for you—no problem. You can uninstall Scoop
 
 This will let you know what's going to happen and ask if you're sure—just type 'y' and press enter to confirm.
 
-
 ### Broken Install
 
 If you delete `~/scoop` you should be able to reinstall.
-

@@ -37,7 +37,6 @@ set shiftwidth=4
 set expandtab
 set backupdir=$TEMP
 ' | out-file ~/.vimrc -enc oem -append
-
 ```
 
 ## Example production environment setup
