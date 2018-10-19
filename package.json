@@ -36,6 +36,7 @@
     "lint-staged": "^7.3.0",
     "prettier-eslint-cli": "^4.7.1",
     "serve": "^10.0.2",
+    "stylus-supremacy": "^2.12.7",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
