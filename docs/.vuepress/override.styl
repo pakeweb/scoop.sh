@@ -1,22 +1,35 @@
-$accentColor = #4172c8
+$accentColor = #4172c8;
+$codeBgColor = #020202;
+$textColor = #f1f1f1;
 
-.nav-links
-  .nav-item
-    text-transform capitalize
+.nav-links {
+	.nav-item {
+		text-transform: capitalize;
+	}
+}
 
 // search input reveal only on focus
-.navbar
-  .search-box
-    margin-left 1rem
-    margin-right 0
+.navbar {
+	.search-box {
+		margin-left: 1rem;
+		margin-right: 0;
 
-    input
-      cursor pointer
-      width 0
-      border-color transparent
-      position relative
+		input {
+			cursor: pointer;
+			width: 0;
+			border-color: transparent;
+			position: relative;
 
-      &:focus
-        cursor text
-        left 0
-        width 10rem
+			&:focus {
+				cursor: text;
+				border-color: $borderColor;
+				left: 0;
+				width: 10rem;
+			}
+		}
+
+		.suggestions {
+			right: 0 !important;
+		}
+	}
+}
