@@ -1,3 +1,5 @@
+# Commands
+
 Information on Scoop's commands is built-in. If you use Git you should find the help interface familiar.
 
 To see a list of commands, run:
@@ -10,7 +12,7 @@ To see help on a specific command, run:
 
 The current commands are (output from `scoop help`):
 
-```
+```latex
 alias            Manage scoop aliases
 bucket           Manage Scoop buckets
 cache            Show or clear the download cache
