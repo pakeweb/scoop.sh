@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Guide
 
 ## Requirements
