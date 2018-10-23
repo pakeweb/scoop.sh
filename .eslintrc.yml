@@ -13,4 +13,7 @@ plugins:
   - vue # required to lint *.vue files
   - node
 # // add your custom rules here
-# rules:
+rules:
+  quotes:
+    - warn
+    - single
