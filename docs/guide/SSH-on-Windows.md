@@ -41,11 +41,11 @@ The key fingerprint is:
 d5:96:01:96:7a:63:25:93:a0:d6:65:0b:1a:a3:e7:05 username@COMPUTER
 The key's randomart image is:
 +--[ RSA 2048]----+
-|      E o.=+.    |
+|      E o.=+.   |
 |     . B ==o.o   |
 |    . = o.o++    |
-|     + ...+.     |
-|      . So .     |
+|     + ...+.    |
+|      . So .    |
 |                 |
 |                 |
 |                 |

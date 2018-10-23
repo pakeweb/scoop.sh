@@ -6,7 +6,7 @@ sidebar: auto
 
 ## Apps
 
-Scoop uses the term 'app' to refer to an application or program to be installed. You might also see it used to loosely refer to a [manifest](App-Manifests) that describes how to install an app.
+Scoop uses the term 'app' to refer to an application or program to be installed. You might also see it used to loosely refer to a [manifest](#app-manifests) that describes how to install an app.
 
 An app is a self-contained, independent unit. It contains one or more executables or scripts. But that's probably too much of an explanation—generally you'll know an app when you see it.
 
@@ -14,7 +14,7 @@ Probably the main reason for the term 'app' is that it only takes 3 keystrokes o
 
 ## Buckets
 
-In Scoop, buckets are collections of apps. Or, to be more specific, a bucket is a Git repository containing JSON [app manifests](App-Manifests) which describe how to install an app.
+In Scoop, buckets are collections of apps. Or, to be more specific, a bucket is a Git repository containing JSON [app manifests](#app-manifests) which describe how to install an app.
 
 Scoop has a [main bucket](https://github.com/lukesampson/scoop/tree/master/bucket) which is bundled with Scoop and this is always available as the primary source for installing apps.
 
@@ -60,8 +60,8 @@ You can run `scoop help bucket` for more information on buckets.
 
 Here's an example of one way you might go about creating a new bucket, using GitHub to host it. You don't have to use GitHub though—you can use whatever source control repo you like, or even just a Git repo on your local or network drive.
 
-1.  Create a new GitHub repo called my-bucket
-2.  Add an app to your bucket. In a powershell session:
+1. Create a new GitHub repo called my-bucket
+2. Add an app to your bucket. In a powershell session:
 
     ```powershell
     git clone https://github.com/<your-username>/my-bucket
@@ -72,13 +72,13 @@ Here's an example of one way you might go about creating a new bucket, using Git
     git push
     ```
 
-3.  Configure Scoop to use your new bucket:
+3. Configure Scoop to use your new bucket:
 
     ```powershell
     scoop bucket add my-bucket https://github.com/<your-username>/my-bucket
     ```
 
-4.  Check that it works:
+4. Check that it works:
 
     ```powershell
     scoop bucket list # -> you should see 'my-bucket'
@@ -87,7 +87,7 @@ Here's an example of one way you might go about creating a new bucket, using Git
     hello # -> you should see 'Hello, <windows-username>!'
     ```
 
-5.  To share your bucket, all you need to do is tell people how to add you bucket, i.e. by running the command in step 3.
+5. To share your bucket, all you need to do is tell people how to add you bucket, i.e. by running the command in step 3.
 
 ## App Manifests
 
@@ -153,10 +153,10 @@ For more examples, see the app manifests in the [main Scoop bucket](https://gith
   - `psmodule`: Install as a PowerShell module in `~/scoop/modules`.
     - `name` (required for `psmodule`): the name of the module, which should match at least one file in the extracted directory for PowerShell to recognize this as a module.
   - `shortcuts`: Specifies the shortcut values to make available in the startmenu. See [sourcetree](https://github.com/lukesampson/scoop-extras/blob/master/sourcetree.json) for an example. The array has to contain a executable/label pair. The third and fourth element are optional.
-    1.  Path to target file [required]
-    2.  Name of the shortcut (supports subdirectories: `<AppsSubDir>\\<AppShortcut>` [e.g. sysinternals](https://github.com/lukesampson/scoop-extras/blob/master/sysinternals.json)) [required]
-    3.  Start parameters [optional]
-    4.  Path to icon file [optional]
+    1. Path to target file [required]
+    2. Name of the shortcut (supports subdirectories: `<AppsSubDir>\\<AppShortcut>` [e.g. sysinternals](https://github.com/lukesampson/scoop-extras/blob/master/sysinternals.json)) [required]
+    3. Start parameters [optional]
+    4. Path to icon file [optional]
   - `suggest`: Display a message suggesting optional apps that provide complementary features. See [ant](https://github.com/lukesampson/scoop/blob/master/bucket/ant.json) for an example.
     - `["Feature Name"] = [ "app1", "app2"... ]`
       e.g. `"JDK": [ "extras/oraclejdk", "openjdk" ]`
@@ -180,7 +180,7 @@ For more examples, see the app manifests in the [main Scoop bucket](https://gith
 
 ### Creating an App Manifest
 
-If you want to install a program that's not included in Scoop, it's easy to create an [app manifest](App-Manifests) yourself.
+If you want to install a program that's not included in Scoop, it's easy to create an [app manifest](#app-manifests) yourself.
 
 Here's how to create and install a manifest for an 'app' that says hello, in just a few lines of powershell.
 
@@ -215,9 +215,9 @@ scoop install https://gist.github.com/lukesampson/6446567/raw/hello.json
 
 #### Next steps
 
-If you ran some of these examples, you probably noticed a warning saying 'no hash in manifest'. For reference information on specifying file hashes and much more in your manifests, see the [App Manifests reference](App-Manifests).
+If you ran some of these examples, you probably noticed a warning saying 'no hash in manifest'. For reference information on specifying file hashes and much more in your manifests, see the [App Manifests reference](#app-manifests).
 
-If you want to maintain a collection of apps, see the page on [Buckets](Buckets) for more information.
+If you want to maintain a collection of apps, see the page on [Buckets](#buckets) for more information.
 
 ### App Manifest Autoupdate
 
@@ -578,7 +578,7 @@ In these sort of cases, when you install an app Scoop will assume you want to in
 
 **Install-time Dependencies vs Runtime Dependencies.**
 
-Runtime dependencies are specified with the `depends` setting in the [app manifest](https://github.com/lukesampson/scoop/wiki/App-Manifests). Install-time dependencies are detected based on the file extensions of the `url`s in the app manifest.
+Runtime dependencies are specified with the `depends` setting in the [app manifest](https://github.com/lukesampson/scoop/wiki/#app-manifests). Install-time dependencies are detected based on the file extensions of the `url`s in the app manifest.
 
 Scoop treats these differently, e.g. `scoop status` only shows warnings for missing **runtime** dependencies.
 

@@ -4,19 +4,19 @@ _Do you have a question that's not answered here? Please create an issue._
 
 First, update Scoop to get the latest manifests:
 
-```
+```powershell
 scoop update
 ```
 
 Then update the app, e.g. Git:
 
-```
+```powershell
 scoop update git
 ```
 
 If you want to update all your apps at once, you can use the wildcard '\*':
 
-```
+```powershell
 scoop update *
 ```
 
@@ -24,7 +24,7 @@ scoop update *
 
 Use `scoop uninstall [app]`. E.g. for Git:
 
-```
+```powershell
 scoop uninstall git
 ```
 

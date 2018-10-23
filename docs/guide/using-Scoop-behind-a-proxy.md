@@ -6,8 +6,8 @@ If your proxy is already configured in Internet Options and it doesn't require a
 
 These instructions are for people who
 
-1.  need to authenticate with their proxy, either using their Windows credentials or another username/password
-2.  want to use a proxy server for Scoop that isn't configured in Internet Options.
+1. need to authenticate with their proxy, either using their Windows credentials or another username/password
+2. want to use a proxy server for Scoop that isn't configured in Internet Options.
 
 ## Installation
 
