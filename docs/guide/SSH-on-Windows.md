@@ -76,7 +76,7 @@ You can use [Pshazz](https://github.com/lukesampson/pshazz) to save your passwor
     scoop install pshazz
 
 You should see a GUI dialog popup asking for your password. Enter it and check the 'Save password' box.
-![](https://github.com/lukesampson/scoop/raw/gh-pages/images/docs/askpass.png)
+![AskPass](./askpass.png)
 
 You should see a message like `Identity added: /c/Users/username//.ssh/id_rsa (/c/Users/username//.ssh/id_rsa)`. Try connecting over SSH again:
 

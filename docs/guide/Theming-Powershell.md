@@ -1,6 +1,6 @@
 # Theming Powershell
 
-![Shell Theme](https://github.com/lukesampson/scoop/raw/gh-pages/images/docs/shell-theme.png)
+![Shell Theme](./shell-theme.png)
 
 This is how my command line looks, running Powershell in the built-in Windows Console. You can see the [Solarized](http://ethanschoonover.com/solarized) color theme, and a custom prompt including Git info. You can't see Git tab completions or support for SSH keys, but those are there too.
 
@@ -27,7 +27,7 @@ scoop install pshazz
 ```
 
 If you install Pshazz and you already have an SSH key, you'll see a popup asking for your password.
-![AskPass](https://github.com/lukesampson/scoop/raw/gh-pages/images/docs/askpass.png)
+![AskPass](./askpass.png)
 
 There's [more info on setting up SSH with Scoop](https://github.com/lukesampson/scoop/wiki/SSH-on-Windows), if you're interested.
 

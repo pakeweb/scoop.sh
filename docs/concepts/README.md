@@ -596,7 +596,7 @@ The `current` directory for apps is a special alias directory which points to th
 
 It allows path references to remain the same across app updates, since paths refer to the `current` directory alias rather than a hardcoded version directory.
 
-![How the 'current' alias works](https://raw.githubusercontent.com/lukesampson/scoop/gh-pages/images/Junctions%20Overview.png)
+![How the 'current' alias works](./junctions-overview.png)
 
 For example, if I run `ls ~/scoop/apps/git` now, I see this output:
 
@@ -630,4 +630,4 @@ The main problem being addressed here is how to keep programs working smoothly b
 
 However, some programs need to set environment variables, registry settings or other configuration after installation that point to the actual install path. Before Scoop used `current` directory junctions, these variables and settings would be pointing to the old directory after an upgrade, which was not ideal. By using a `current` alias directory and updating the alias, the settings would continue to point to the right location.
 
-![Why Junctions?](https://raw.githubusercontent.com/lukesampson/scoop/gh-pages/images/Junctions%20Comparison.png)
+![Why Junctions?](./junctions-comparison.png)
