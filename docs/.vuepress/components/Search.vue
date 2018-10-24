@@ -38,7 +38,7 @@
         <div v-if="showApp">
           <h3>{{ selectedApp.name.replace('.json', '') }} ({{ selectedApp.version }})</h3>
           <p>{{ selectedApp.description }}</p>
-          <p v-if="!isInternalBucket(selectedApp.repository)">
+          <p v-if="!isMainBucket(selectedApp.repository)">
             Add bucket command:
             <cite>scoop bucket add {{ selectedApp.repository.full_name }}</cite>
           </p>
@@ -59,10 +59,10 @@
           <div>Score: {{ app.score }}</div>Bucket:
           <div>- Name:
             <VLink
-              v-if="!isInternalBucket(app)"
               :to="app.repository.html_url"
-            >{{ app.repository.full_name }}</VLink>
-            <span v-else>Internal</span>
+            >
+              {{ isMainBucket(app) ? 'Main' : app.repository.full_name }}
+            </VLink>
           </div>
           <div>
             - Description:
@@ -148,7 +148,7 @@ export default {
       this.showApp = !this.showApp;
     },
 
-    isInternalBucket(o) {
+    isMainBucket(o) {
       const name =
         typeof o === "string"
           ? o
