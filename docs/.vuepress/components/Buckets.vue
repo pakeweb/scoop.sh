@@ -39,8 +39,8 @@
 
 
 <script>
-import nprogress from "nprogress";
-import ScoopMixin from "../mixins/scoop";
+import nprogress from 'nprogress';
+import ScoopMixin from '../mixins/scoop';
 
 export default {
   mixins: [ScoopMixin],

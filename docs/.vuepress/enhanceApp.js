@@ -1,5 +1,5 @@
-import axios from "axios";
-import VueAxios from "vue-axios";
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app

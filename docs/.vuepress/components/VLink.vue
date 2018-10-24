@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { isExternal, isMailto, isTel, ensureExt } from "@default-theme/util";
+import { isExternal, isMailto, isTel, ensureExt } from '@default-theme/util';
 
 export default {
   props: {
@@ -43,7 +43,7 @@ export default {
           rootLink => rootLink === this.link
         );
       }
-      return this.link === "/";
+      return this.link === '/';
     }
   },
 

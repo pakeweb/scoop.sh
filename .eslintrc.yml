@@ -15,5 +15,5 @@ plugins:
 # // add your custom rules here
 rules:
   quotes:
-    - warn
+    - error
     - single

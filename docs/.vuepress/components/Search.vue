@@ -78,16 +78,16 @@
 </template>
 
 <script>
-import debounce from "tiny-debounce";
-import nprogress from "nprogress";
-import Modal from "vue-slim-modal";
-import ScoopMixin from "../mixins/scoop";
+import debounce from 'tiny-debounce';
+import nprogress from 'nprogress';
+import Modal from 'vue-slim-modal';
+import ScoopMixin from '../mixins/scoop';
 
 export default {
-  mixins: [ScoopMixin],
   components: {
     Modal
   },
+  mixins: [ScoopMixin],
   data() {
     return {
       buckets: [],
@@ -95,7 +95,7 @@ export default {
       apps: [],
       showApp: false,
       selectedApp: {},
-      query: "",
+      query: '',
       found: false
     };
   },
@@ -103,12 +103,12 @@ export default {
   computed: {
     bucketsList() {
       return encodeURI(
-        "+repo:" +
+        '+repo:' +
           this.buckets
             .map(el => {
               return el.full_name;
             })
-            .join("+repo:")
+            .join('+repo:')
       );
     }
   },
@@ -132,7 +132,7 @@ export default {
       nprogress.start();
       this.axios
         .get(
-          "https://api.github.com/search/code?q=sort:updated+in:file+extension:json+repo:lukesampson/scoop+path:bucket&sort=updated"
+          'https://api.github.com/search/code?q=sort:updated+in:file+extension:json+repo:lukesampson/scoop+path:bucket&sort=updated'
         )
         .then(response => {
           this.apps = window.SCOOP_OFFICIAL_APPS = response.data.items;
@@ -161,8 +161,8 @@ export default {
         nprogress.start();
         const { data } = await this.axios.get(
           app.html_url
-            .replace("github.com", "raw.githubusercontent.com")
-            .replace("/blob/", "/")
+            .replace('github.com', 'raw.githubusercontent.com')
+            .replace('/blob/', '/')
         );
         window.SCOOP_APPS.set(app.sha, data);
 
