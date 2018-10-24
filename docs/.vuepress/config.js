@@ -18,10 +18,9 @@ module.exports = {
     repo: 'pakeweb/scoop.sh',
     docsDir: 'docs',
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'Guide', link: '/guide/' },
       { text: 'Apps', link: '/apps/' },
       { text: 'Buckets', link: '/buckets/' },
-      { text: 'Guide', link: '/guide/' },
       { text: 'Concepts', link: '/concepts/' },
       { text: 'FAQ', link: '/faq/' },
       { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' }
