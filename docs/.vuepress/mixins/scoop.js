@@ -18,16 +18,16 @@ export default {
         .get(
           'https://raw.githubusercontent.com/lukesampson/scoop/master/buckets.json'
         )
-        .then(({ data }) => data)
-        .finally(nprogress.done);
+        .then(({ data }) => nprogress.done() && data)
+        .catch(() => nprogress.done());
     },
 
     findBuckets() {
       nprogress.start();
       return this.axios
         .get('https://api.github.com/search/repositories?q=topic:scoop-bucket')
-        .then(response => response.data.items)
-        .finally(nprogress.done);
+        .then(response => nprogress.done() && response.data.items)
+        .catch(() => nprogress.done());
     },
 
     bucketName(bucket, known) {
