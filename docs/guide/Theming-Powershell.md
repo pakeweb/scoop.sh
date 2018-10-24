@@ -27,6 +27,7 @@ scoop install pshazz
 ```
 
 If you install Pshazz and you already have an SSH key, you'll see a popup asking for your password.
+
 ![AskPass](./askpass.png)
 
 There's [more info on setting up SSH with Scoop](https://github.com/lukesampson/scoop/wiki/SSH-on-Windows), if you're interested.
