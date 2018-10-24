@@ -50,7 +50,7 @@
       </modal>
       <div
         v-for="app in apps"
-        :key="app.sha"
+        :key="app.id"
         class="result-list"
         @click="openApp(app)"
       >
@@ -61,7 +61,7 @@
             <VLink
               :to="app.repository.html_url"
             >
-              {{ isMainBucket(app) ? 'Main' : app.repository.full_name }}
+              {{ bucketName(app.repository, known) }}
             </VLink>
           </div>
           <div>
@@ -81,14 +81,17 @@
 import debounce from "tiny-debounce";
 import nprogress from "nprogress";
 import Modal from "vue-slim-modal";
+import ScoopMixin from "../mixins/scoop";
 
 export default {
+  mixins: [ScoopMixin],
   components: {
     Modal
   },
   data() {
     return {
       buckets: [],
+      known: null,
       apps: [],
       showApp: false,
       selectedApp: {},
@@ -115,6 +118,15 @@ export default {
 
     window.SCOOP_APPS = window.SCOOP_APPS || new Map();
 
+    // get known buckets
+    if (!window.SCOOP_KNOWN_BUCKETS) {
+      this.getKnownBuckets().then(known => {
+        this.known = window.SCOOP_KNOWN_BUCKETS = known;
+      });
+    } else {
+      this.known = window.SCOOP_KNOWN_BUCKETS;
+    }
+
     // fetch for official repo
     if (!window.SCOOP_OFFICIAL_APPS) {
       nprogress.start();
@@ -131,13 +143,9 @@ export default {
     }
 
     if (!window.SCOOP_BUCKETS) {
-      nprogress.start();
-      this.axios
-        .get("https://api.github.com/search/repositories?q=topic:scoop-bucket")
-        .then(response => {
-          this.buckets = window.SCOOP_BUCKETS = response.data.items;
-          nprogress.done();
-        });
+      this.findBuckets().then(items => {
+        this.buckets = window.SCOOP_BUCKETS = items;
+      });
     } else {
       this.buckets = window.SCOOP_BUCKETS;
     }
@@ -146,16 +154,6 @@ export default {
   methods: {
     toggleApp() {
       this.showApp = !this.showApp;
-    },
-
-    isMainBucket(o) {
-      const name =
-        typeof o === "string"
-          ? o
-          : o.repository
-            ? o.repository.full_name
-            : o.full_name;
-      return name === "lukesampson/scoop";
     },
 
     async openApp(app) {

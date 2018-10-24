@@ -9,22 +9,22 @@
     </thead>
     <tbody>
       <template v-if="buckets.length">
-        <tr 
-          v-for="bucket in buckets" 
+        <tr
+          v-for="bucket in buckets"
           :key="bucket.id"
         >
           <td>
-            <VLink 
-              :to="bucket.owner.html_url" 
+            <VLink
+              :to="bucket.owner.html_url"
               inbound
             >
-              <img 
-                width="20" 
-                class="avatar" 
+              <img
+                width="20"
+                class="avatar"
                 :src="bucket.owner.avatar_url + '&amp;s=20'"
               >
             </VLink>
-            <VLink :to="bucket.html_url">{{ bucket.full_name }}</VLink>
+            <VLink :to="bucket.html_url">{{ bucketName(bucket, known) }}</VLink>
           </td>
           <td>{{ bucket.description }}</td>
           <td style="text-align: right;">{{ bucket.stargazers_count }}</td>
@@ -40,22 +40,31 @@
 
 <script>
 import nprogress from "nprogress";
+import ScoopMixin from "../mixins/scoop";
 
 export default {
+  mixins: [ScoopMixin],
+
   data: () => ({
+    known: {},
     buckets: []
   }),
-  mounted() {
+
+  async mounted() {
     if (!window.SCOOP_BUCKETS) {
-      nprogress.start();
-      this.axios
-        .get("https://api.github.com/search/repositories?q=topic:scoop-bucket")
-        .then(response => {
-          this.buckets = window.SCOOP_BUCKETS = response.data.items;
-          nprogress.done();
-        });
+      this.findBuckets().then(items => {
+        this.buckets = window.SCOOP_BUCKETS = items;
+      });
     } else {
       this.buckets = window.SCOOP_BUCKETS;
+    }
+
+    if (!window.SCOOP_KNOWN_BUCKETS) {
+      this.getKnownBuckets().then(known => {
+        this.known = window.SCOOP_KNOWN_BUCKETS = known;
+      });
+    } else {
+      this.known = window.SCOOP_KNOWN_BUCKETS;
     }
   }
 };
