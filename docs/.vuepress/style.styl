@@ -1,36 +1,36 @@
 body
-	font-family 'Roboto Mono', monospace
+  font-family 'Roboto Mono', monospace
 
 .home
-	.hero
-		.description
-			color $textColor
-			font-size 1.4rem
+  .hero
+    .description
+      color $textColor
+      font-size 1.4rem
 
 // hide github nav link
 .repo-link
-	display none !important
+  display none !important
 
 .custom-layout
-	.home
-		padding-top 0
+  .home
+    padding-top 0
 
 // put the search input at the edge
 .links
-	flex-direction row
-	padding-left 0
-	padding-right 1.5rem
+  flex-direction row
+  padding-left 0
+  padding-right 1.5rem
 
-	:nth-child(1)
-		order 2
+  :nth-child(1)
+    order 2
 
 .text-accent
-	color $accentColor
+  color $accentColor
 
 @media (max-width: 419px)
-	.mobile-hide
-		display none !important
+  .mobile-hide
+    display none !important
 
 .faq .content
-	& h2:after
-		content '?'
+  & h2:after
+    content '?'

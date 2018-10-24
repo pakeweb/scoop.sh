@@ -3,30 +3,30 @@ $codeBgColor = #012456
 $codeLang = js ts html md vue css sass scss less stylus go java c sh yaml py ini powershell
 
 .site-name, .home .hero h1
-	&:before
-		content '~/'
+  &:before
+    content '~/'
 
 .nav-links
-	.nav-item
-		text-transform capitalize
+  .nav-item
+    text-transform capitalize
 
 // search input reveal only on focus
 .navbar
-	.search-box
-		margin-left 1rem
-		margin-right 0
+  .search-box
+    margin-left 1rem
+    margin-right 0
 
-		input
-			border-color transparent
-			cursor pointer
-			position relative
-			width 0
+    input
+      border-color transparent
+      cursor pointer
+      position relative
+      width 0
 
-			&:focus
-				border-color $borderColor
-				cursor text
-				left 0
-				width 10rem
+      &:focus
+        border-color $borderColor
+        cursor text
+        left 0
+        width 10rem
 
-		.suggestions
-			right 0
+    .suggestions
+      right 0

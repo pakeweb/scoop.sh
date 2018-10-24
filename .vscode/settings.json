@@ -1,5 +1,6 @@
 {
   "stylusSupremacy.insertBraces": false,
   "stylusSupremacy.insertColons": false,
-  "stylusSupremacy.insertSemicolons": false
+  "stylusSupremacy.insertSemicolons": false,
+  "stylusSupremacy.tabStopChar": "  "
 }
