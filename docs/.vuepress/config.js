@@ -6,11 +6,12 @@ module.exports = {
   title: 'Scoop',
   description: 'A command-line installer for Windows',
   head,
+  serviceWorker: true,
   themeConfig: {
     lastUpdated: true,
     serviceWorker: {
       updatePopup: {
-        message: 'Documentation has been updated.',
+        message: 'New content is available.',
         buttonText: 'Refresh'
       }
     },
