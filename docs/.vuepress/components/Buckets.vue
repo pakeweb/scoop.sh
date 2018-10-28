@@ -14,16 +14,6 @@
           :key="bucket.id"
         >
           <td>
-            <VLink
-              :to="bucket.owner.html_url"
-              inbound
-            >
-              <img
-                width="20"
-                class="avatar"
-                :src="bucket.owner.avatar_url + '&amp;s=20'"
-              >
-            </VLink>
             <VLink :to="bucket.html_url">{{ bucketName(bucket, known) }}</VLink>
           </td>
           <td>{{ bucket.description }}</td>
