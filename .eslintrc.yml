@@ -17,3 +17,9 @@ rules:
   quotes:
     - error
     - single
+  semi:
+    - error
+    - never
+  comma-dangle:
+    - error
+    - always-multiline
