@@ -1,5 +1,7 @@
 ---
 editLink: false
+pageClass:
+  - no-edit
 ---
 # Buckets
 
