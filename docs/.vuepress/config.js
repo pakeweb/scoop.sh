@@ -4,30 +4,41 @@ const head = require('./head');
 
 module.exports = {
   title: 'Scoop',
-  description: 'A command-line installer for Windows',
   head,
+  locales: {
+    '/': {
+      lang: 'en-US',
+      description: 'A command-line installer for Windows'
+    }
+  },
   serviceWorker: true,
   themeConfig: {
-    lastUpdated: true,
-    serviceWorker: {
-      updatePopup: {
-        message: 'New content is available.',
-        buttonText: 'Refresh'
-      }
-    },
-    editLinks: true,
     repo: 'pakeweb/scoop.sh',
     docsDir: 'docs',
-    nav: [
-      { text: 'Guide', link: '/guide/' },
-      { text: 'Apps', link: '/apps/' },
-      { text: 'Buckets', link: '/buckets/' },
-      { text: 'Concepts', link: '/concepts/' },
-      { text: 'FAQ', link: '/faq/' },
-      { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' }
-    ],
-    sidebar: {
-      ...aside('/guide/', { title: 'Miscellaneous' })
+    locales: {
+      '/': {
+        label: 'English',
+        selectText: 'Languages',
+        editLinkText: 'Edit this page on GitHub',
+        lastUpdated: 'Last Updated',
+        serviceWorker: {
+          updatePopup: {
+            message: 'New content is available.',
+            buttonText: 'Refresh'
+          }
+        },
+        nav: [
+          { text: 'Guide', link: '/guide/' },
+          { text: 'Apps', link: '/apps/' },
+          { text: 'Buckets', link: '/buckets/' },
+          { text: 'Concepts', link: '/concepts/' },
+          { text: 'FAQ', link: '/faq/' },
+          { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' }
+        ],
+        sidebar: {
+          ...aside('/guide/', { title: 'Miscellaneous' })
+        }
+      }
     }
   },
   dest: 'dist'
