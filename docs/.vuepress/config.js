@@ -11,7 +11,7 @@ module.exports = {
     lastUpdated: true,
     serviceWorker: {
       updatePopup: {
-        message: 'Documentation has been updated.',
+        message: 'New content is available.',
         buttonText: 'Refresh'
       }
     },
