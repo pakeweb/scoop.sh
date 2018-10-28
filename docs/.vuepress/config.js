@@ -1,6 +1,6 @@
-const path = require('path');
-const globby = require('globby');
-const head = require('./head');
+const path = require('path')
+const globby = require('globby')
+const head = require('./head')
 
 module.exports = {
   title: 'Scoop',
@@ -8,8 +8,8 @@ module.exports = {
   locales: {
     '/': {
       lang: 'en-US',
-      description: 'A command-line installer for Windows'
-    }
+      description: 'A command-line installer for Windows',
+    },
   },
   serviceWorker: true,
   themeConfig: {
@@ -24,8 +24,8 @@ module.exports = {
         serviceWorker: {
           updatePopup: {
             message: 'New content is available.',
-            buttonText: 'Refresh'
-          }
+            buttonText: 'Refresh',
+          },
         },
         nav: [
           { text: 'Guide', link: '/guide/' },
@@ -33,33 +33,33 @@ module.exports = {
           { text: 'Buckets', link: '/buckets/' },
           { text: 'Concepts', link: '/concepts/' },
           { text: 'FAQ', link: '/faq/' },
-          { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' }
+          { text: 'GitHub', link: 'https://github.com/lukesampson/scoop' },
         ],
         sidebar: {
-          ...aside('/guide/', { title: 'Miscellaneous' })
-        }
-      }
-    }
+          ...aside('/guide/', { title: 'Miscellaneous' }),
+        },
+      },
+    },
   },
-  dest: 'dist'
-};
+  dest: 'dist',
+}
 
 function aside(dir, holder, merge = true) {
-  const cwd = path.join(__dirname, '..', dir);
-  const ignore = ['README.md', 'readme.md', 'index.md'];
-  const files = globby.sync('*.md', { cwd, ignore });
+  const cwd = path.join(__dirname, '..', dir)
+  const ignore = ['README.md', 'readme.md', 'index.md']
+  const files = globby.sync('*.md', { cwd, ignore })
 
-  let sides = {};
+  let sides = {}
 
   if (holder && holder.title) {
-    holder.children = holder.children ? holder.children.concat(files) : files;
-    sides[dir] = [holder];
+    holder.children = holder.children ? holder.children.concat(files) : files
+    sides[dir] = [holder]
   } else {
-    sides[dir] = files;
+    sides[dir] = files
   }
 
   if (merge) {
-    sides[dir].unshift('');
+    sides[dir].unshift('')
   }
-  return sides;
+  return sides
 }

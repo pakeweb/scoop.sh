@@ -78,14 +78,14 @@
 </template>
 
 <script>
-import debounce from 'tiny-debounce';
-import nprogress from 'nprogress';
-import Modal from 'vue-slim-modal';
-import ScoopMixin from '../mixins/scoop';
+import debounce from 'tiny-debounce'
+import nprogress from 'nprogress'
+import Modal from 'vue-slim-modal'
+import ScoopMixin from '../mixins/scoop'
 
 export default {
   components: {
-    Modal
+    Modal,
   },
   mixins: [ScoopMixin],
   data() {
@@ -96,8 +96,8 @@ export default {
       showApp: false,
       selectedApp: {},
       query: '',
-      found: false
-    };
+      found: false,
+    }
   },
 
   computed: {
@@ -106,100 +106,100 @@ export default {
         '+repo:' +
           this.buckets
             .map(el => {
-              return el.full_name;
+              return el.full_name
             })
             .join('+repo:')
-      );
-    }
+      )
+    },
   },
 
   mounted() {
-    nprogress.configure({ showSpinner: false });
+    nprogress.configure({ showSpinner: false })
 
-    window.SCOOP_APPS = window.SCOOP_APPS || new Map();
+    window.SCOOP_APPS = window.SCOOP_APPS || new Map()
 
     // get known buckets
     if (!window.SCOOP_KNOWN_BUCKETS) {
       this.getKnownBuckets().then(known => {
-        this.known = window.SCOOP_KNOWN_BUCKETS = known;
-      });
+        this.known = window.SCOOP_KNOWN_BUCKETS = known
+      })
     } else {
-      this.known = window.SCOOP_KNOWN_BUCKETS;
+      this.known = window.SCOOP_KNOWN_BUCKETS
     }
 
     // fetch for official repo
     if (!window.SCOOP_OFFICIAL_APPS) {
-      nprogress.start();
+      nprogress.start()
       this.axios
         .get(
           'https://api.github.com/search/code?q=sort:updated+in:file+extension:json+repo:lukesampson/scoop+path:bucket&sort=updated'
         )
         .then(response => {
-          this.apps = window.SCOOP_OFFICIAL_APPS = response.data.items;
-          nprogress.done();
-        });
+          this.apps = window.SCOOP_OFFICIAL_APPS = response.data.items
+          nprogress.done()
+        })
     } else {
-      this.apps = window.SCOOP_OFFICIAL_APPS;
+      this.apps = window.SCOOP_OFFICIAL_APPS
     }
 
     if (!window.SCOOP_BUCKETS) {
       this.findBuckets().then(items => {
-        this.buckets = window.SCOOP_BUCKETS = items;
-      });
+        this.buckets = window.SCOOP_BUCKETS = items
+      })
     } else {
-      this.buckets = window.SCOOP_BUCKETS;
+      this.buckets = window.SCOOP_BUCKETS
     }
   },
 
   methods: {
     toggleApp() {
-      this.showApp = !this.showApp;
+      this.showApp = !this.showApp
     },
 
     async openApp(app) {
       if (!window.SCOOP_APPS.has(app.sha)) {
-        nprogress.start();
+        nprogress.start()
         const { data } = await this.axios.get(
           app.html_url
             .replace('github.com', 'raw.githubusercontent.com')
             .replace('/blob/', '/')
-        );
-        window.SCOOP_APPS.set(app.sha, data);
+        )
+        window.SCOOP_APPS.set(app.sha, data)
 
-        nprogress.done();
+        nprogress.done()
       }
 
       this.selectedApp = {
         ...app,
-        ...window.SCOOP_APPS.get(app.sha)
-      };
-      this.toggleApp();
-      console.log(this.selectedApp);
+        ...window.SCOOP_APPS.get(app.sha),
+      }
+      this.toggleApp()
+      console.log(this.selectedApp)
     },
     search: debounce(function() {
-      this.found = false;
+      this.found = false
       // One char always return zero
-      if (this.query.length < 2) return;
+      if (this.query.length < 2) return
 
-      nprogress.start();
+      nprogress.start()
 
-      const query = encodeURI(this.query);
-      const buckets = this.bucketsList;
-      const url = `https://api.github.com/search/code?q=${query}+in:file+extension:json${buckets}`;
+      const query = encodeURI(this.query)
+      const buckets = this.bucketsList
+      const url = `https://api.github.com/search/code?q=${query}+in:file+extension:json${buckets}`
 
       this.axios
         .get(url)
         .catch(err => {
-          nprogress.done();
+          nprogress.done()
         })
         .then(({ data: { items, total_count } }) => {
-          this.apps = items;
-          this.found = total_count;
-          nprogress.done();
-        });
-    }, 1000)
-  }
-};
+          this.apps = items
+          this.found = total_count
+          nprogress.done()
+        })
+    }, 1000),
+  },
+}
 </script>
 
 <style lang="stylus">

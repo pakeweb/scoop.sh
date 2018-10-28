@@ -39,33 +39,33 @@
 
 
 <script>
-import nprogress from 'nprogress';
-import ScoopMixin from '../mixins/scoop';
+import nprogress from 'nprogress'
+import ScoopMixin from '../mixins/scoop'
 
 export default {
   mixins: [ScoopMixin],
 
   data: () => ({
     known: {},
-    buckets: []
+    buckets: [],
   }),
 
   async mounted() {
     if (!window.SCOOP_BUCKETS) {
       this.findBuckets().then(items => {
-        this.buckets = window.SCOOP_BUCKETS = items;
-      });
+        this.buckets = window.SCOOP_BUCKETS = items
+      })
     } else {
-      this.buckets = window.SCOOP_BUCKETS;
+      this.buckets = window.SCOOP_BUCKETS
     }
 
     if (!window.SCOOP_KNOWN_BUCKETS) {
       this.getKnownBuckets().then(known => {
-        this.known = window.SCOOP_KNOWN_BUCKETS = known;
-      });
+        this.known = window.SCOOP_KNOWN_BUCKETS = known
+      })
     } else {
-      this.known = window.SCOOP_KNOWN_BUCKETS;
+      this.known = window.SCOOP_KNOWN_BUCKETS
     }
-  }
-};
+  },
+}
 </script>

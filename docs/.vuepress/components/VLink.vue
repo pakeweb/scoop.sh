@@ -18,39 +18,39 @@
 </template>
 
 <script>
-import { isExternal, isMailto, isTel, ensureExt } from '@default-theme/util';
+import { isExternal, isMailto, isTel, ensureExt } from '@default-theme/util'
 
 export default {
   props: {
     to: {
       required: true,
-      type: String
+      type: String,
     },
     inbound: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   computed: {
     link() {
-      return ensureExt(this.to);
+      return ensureExt(this.to)
     },
 
     exact() {
       if (this.$site.locales) {
         return Object.keys(this.$site.locales).some(
           rootLink => rootLink === this.link
-        );
+        )
       }
-      return this.link === '/';
-    }
+      return this.link === '/'
+    },
   },
 
   methods: {
     isExternal,
     isMailto,
-    isTel
-  }
-};
+    isTel,
+  },
+}
 </script>
